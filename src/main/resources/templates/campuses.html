@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Campus Books</title>
+    <link rel="stylesheet"  href="./css/style.css">
+
+</head>
+<body>
+    <h1>Welcome Campus Books</h1>
+    <container>
+        <br>
+        <br>
+        <div class="campuses">
+
+            <div th:each="campus: ${campuses}">
+                <h2 th:text="${campus.location}">Cleveland </h2>
+                <ul>
+                    <li th:each="book: ${campus.books}" th:text="${book.title}"></li>
+                </ul>
+            </div>
+
+        </div>
+        <hr>
+        <br>
+        <br>
+        <div class="authors">
+            <ul>
+                <li th:each="author: ${authors}" th:text="${author.name}">Kathy Sierra</li>
+
+            </ul>
+
+        </div>
+    </container>
+</body>
+</html>
