@@ -3,6 +3,7 @@ package wcci.demo.model;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Author {
@@ -22,6 +23,10 @@ public class Author {
     public Author() {
     }
 
+    public long getId() {
+        return id;
+    }
+
     public void addBook(Book book){
         books.add(book);
     }
@@ -33,4 +38,19 @@ public class Author {
     public Collection<Book> getBooks() {
         return books;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return id == author.id && Objects.equals(name, author.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+
 }
