@@ -30,6 +30,14 @@ public class Book {
     public Book() {
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public Campus getCampus() {
+        return campus;
+    }
+
     public String getTitle() {
         return title;
     }

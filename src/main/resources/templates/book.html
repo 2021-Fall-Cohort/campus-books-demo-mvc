@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Campus Books</title>
+    <link rel="stylesheet"  href="./css/style.css">
+
+</head>
+<body>
+    <h1>Book page!</h1>
+    <container>
+        <br>
+        <br>
+        <div class="campuses">
+
+            <h2 th:text="${book.title}">Cleveland </h2>
+
+            <p th:text="${book.description}"></p>
+            <p th:text="${book.ISBN}"></p>
+
+        </div>
+
+    </container>
+</body>
+</html>

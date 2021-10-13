@@ -17,7 +17,9 @@
             <div th:each="campus: ${campuses}">
                 <h2 th:text="${campus.location}">Cleveland </h2>
                 <ul>
-                    <li th:each="book: ${campus.books}" th:text="${book.title}"></li>
+                    <li th:each="book: ${campus.books}" >
+                        <a th:href="'/books/' + ${book.id}" th:text="${book.title}"></a>
+                    </li>
                 </ul>
             </div>
 
