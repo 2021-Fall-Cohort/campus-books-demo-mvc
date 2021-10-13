@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Controller
-public class campuses {
+public class Campuses {
 
     private BookRepository bookRepo;
     private AuthorRepository authorRepo;
     private CampusRepository campusRepo;
 
-    public campuses(BookRepository bookRepo, AuthorRepository authorRepo, CampusRepository campusRepo) {
+    public Campuses(BookRepository bookRepo, AuthorRepository authorRepo, CampusRepository campusRepo) {
         this.bookRepo = bookRepo;
         this.authorRepo = authorRepo;
         this.campusRepo = campusRepo;

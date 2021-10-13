@@ -25,11 +25,14 @@
         <hr>
         <br>
         <br>
-        <div class="authors">
-            <ul>
-                <li th:each="author: ${authors}" th:text="${author.name}">Kathy Sierra</li>
+        <div class="authors" th:each="author: ${authors}">
 
-            </ul>
+                <h1 th:text="${author.name}">Kathy Sierra</h1>
+                <ul>
+                    <li th:each="book: ${author.books}" th:text="${book.title}"></li>
+                </ul>
+
+
 
         </div>
     </container>

@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import wcci.demo.model.Campus;
-import wcci.demo.controllers.campuses;
+import wcci.demo.controllers.Campuses;
 import wcci.demo.repos.AuthorRepository;
 import wcci.demo.repos.BookRepository;
 import wcci.demo.repos.CampusRepository;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(campuses.class)
+@WebMvcTest(Campuses.class)
 public class CampusControllerMVCTest {
 
     @Autowired

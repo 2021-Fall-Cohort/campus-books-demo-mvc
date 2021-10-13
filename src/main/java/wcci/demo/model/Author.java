@@ -12,12 +12,11 @@ public class Author {
     private long id;
     private String name;
 
-    @OneToMany(mappedBy = "author")
+    @ManyToMany(mappedBy = "authors")
     private Collection<Book> books;
 
-    public Author(String name, Book... authorBooks) {
+    public Author(String name) {
         this.name = name;
-        this.books = Arrays.asList(authorBooks);
     }
 
     public Author() {
@@ -27,9 +26,7 @@ public class Author {
         return id;
     }
 
-    public void addBook(Book book){
-        books.add(book);
-    }
+
 
     public String getName() {
         return name;
