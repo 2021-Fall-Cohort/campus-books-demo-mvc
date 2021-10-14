@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Campus Books</title>
+    <link rel="stylesheet"  href="./css/style.css">
+
+</head>
+<body>
+    <h1 th:text="${campus.location} + ' Campus View'"></h1>
+    <hr>
+    <div class="container">
+        <ul>
+            <li th:each="book:${campus.books}" th:text="${book.title}"></li>
+        </ul>
+    </div>
+
+    <hr>
+    <form action="/books/add" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" ><br><br>
+        <label for="ISBN">ISBN:</label><br>
+        <input type="text" id="ISBN" name="ISBN" ><br><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" ><br><br>
+        <input type="hidden" id="location" name="location" th:value="${campus.location}">
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

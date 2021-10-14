@@ -3,6 +3,7 @@ package wcci.demo.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
