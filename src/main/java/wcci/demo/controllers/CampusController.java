@@ -38,8 +38,13 @@ public class CampusController {
     }
     @RequestMapping("/campuses/{location}")
     public String showCampus(Model model, @PathVariable String location){
-        System.out.println(location);
-        model.addAttribute("campus",campusRepo.findByLocationIgnoreCase(location));
+        try{
+            model.addAttribute("campus",campusRepo.findByLocationIgnoreCase(location));
+        }
+        catch(Exception ex){
+
+        }
+
         return "campus";
     }
 }

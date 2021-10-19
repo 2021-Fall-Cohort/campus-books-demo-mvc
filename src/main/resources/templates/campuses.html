@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Campus Books</title>
-    <link rel="stylesheet"  href="./css/style.css">
+    <link rel="stylesheet"  href="/css/style.css">
 
 </head>
 <body>
+
+    <div th:replace="fragments.html :: nav"></div>
+    <br>
     <h1>Welcome Campus Books</h1>
-    <container>
+    <div class="container">
         <br>
         <br>
         <div class="campuses">
@@ -37,6 +40,9 @@
 
 
         </div>
-    </container>
+    </div>
+
+    <div th:replace="fragments.html :: footer"></div>
+
 </body>
 </html>

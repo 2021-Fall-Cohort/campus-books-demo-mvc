@@ -35,7 +35,7 @@ public class BookController {
         return "book";
     }
     @PostMapping("/add")
-    public String addBook(@RequestParam String title, @RequestParam String description, @RequestParam String ISBN, @RequestParam String author, @RequestParam String location){
+    public String addBook(@RequestParam String title, @RequestParam String description, @RequestParam String ISBN, @RequestParam String author, @RequestParam String location, @RequestParam String imgUrl){
         Campus campus = campusRepo.findByLocationIgnoreCase(location);
         Author author1;
         Optional<Author> authorOpt = authorRepo.findByName(author);
@@ -46,9 +46,8 @@ public class BookController {
         else{
             author1 = authorOpt.get();
         }
-        Book newBook = new Book(title,description,ISBN,campus,author1);
+        Book newBook = new Book(title,description,ISBN,campus,imgUrl, author1);
         bookRepo.save(newBook);
-
         return "redirect:/campuses/" + location;
     }
 }

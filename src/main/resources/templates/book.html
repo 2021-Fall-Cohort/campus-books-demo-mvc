@@ -4,23 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Campus Books</title>
-    <link rel="stylesheet"  href="./css/style.css">
+    <link rel="stylesheet"  href="/css/style.css">
 
 </head>
 <body>
+    <div th:replace="fragments.html :: nav"></div>
+    <br>
     <h1>Book page!</h1>
-    <container>
+    <div class="container">
         <br>
         <br>
         <div class="campuses">
 
             <h2 th:text="${book.title}">Cleveland </h2>
+            <img th:src="${book.imgUrl}" th:alt="${book.title}" class="book_img"/>
 
             <p th:text="${book.description}"></p>
             <p th:text="${book.ISBN}"></p>
 
         </div>
 
-    </container>
+    </div>
+    <div th:replace="fragments.html :: footer"></div>
 </body>
 </html>

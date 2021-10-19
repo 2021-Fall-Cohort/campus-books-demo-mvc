@@ -40,9 +40,9 @@ public class Populator implements CommandLineRunner {
         authorRepo.save(author1);
 
 
-        Book myBook = new Book("Head First Java", "Learn Java the easy way","12345",cleveland, sierra, uncleBob, author1);
-        Book cleanCode = new Book("Clean Code", "how to write clean code","34545",columbus,uncleBob);
-        Book dummies = new Book("Java for dummies", "Learn to code like it's the 2000's", "983475",columbus,sierra);
+        Book myBook = new Book("Head First Java", "Learn Java the easy way","12345",cleveland,"/images/head_first_java.jpg", sierra, uncleBob, author1);
+        Book cleanCode = new Book("Clean Code", "how to write clean code","34545",columbus,"/images/one_fish.jpg", uncleBob);
+        Book dummies = new Book("Java for dummies", "Learn to code like it's the 2000's", "983475",columbus,"", sierra);
         bookRepo.save(myBook);
         bookRepo.save(cleanCode);
         bookRepo.save(dummies);

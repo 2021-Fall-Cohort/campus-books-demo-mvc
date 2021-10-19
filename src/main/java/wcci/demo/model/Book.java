@@ -15,15 +15,17 @@ public class Book {
     private String ISBN;
     @ManyToOne
     private Campus campus;
+    private String imgUrl;
 
     @ManyToMany
     private Collection<Author> authors;
 
-    public Book(String title, String description, String ISBN, Campus campus, Author... author) {
+    public Book(String title, String description, String ISBN, Campus campus, String imgUrl, Author... author) {
         this.title = title;
         this.description = description;
         this.ISBN = ISBN;
         this.campus = campus;
+        this.imgUrl = imgUrl;
         this.authors = Arrays.asList(author);
     }
 
@@ -52,6 +54,10 @@ public class Book {
 
     public Collection<Author> getAuthors() {
         return authors;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     @Override
