@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${whatEverIwant.title}">BOOK TITLE</title>
+    <title>All Books</title>
     <link rel="stylesheet"  href="/css/style.css">
 </head>
 <body>
 <div th:replace="fragments.html :: nav"></div>
     <div class="container">
-        <h1 th:text="${whatEverIwant.title}">Book Title</h1>
-        <hr>
-        <h2 th:text="${whatEverIwant.author}">David Hooper</h2>
-        <h3 th:text="${whatEverIwant.isbn}">3284524872</h3>
-        <h3 th:text="${whatEverIwant.pubDate}">1/1/1990</h3>
+        <ul>
+            <li th:each="thing:${books}" ><a th:href="'/books/' + ${thing.id}" th:text="${thing.title}"></a></li>
+        </ul>
     </div>
 <div th:replace="fragments.html :: footer"></div>
 </body>

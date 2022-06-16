@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import wcci.demo.model.Campus;
-import wcci.demo.controllers.CampusController;
-import wcci.demo.repos.AuthorRepository;
-import wcci.demo.repos.BookRepository;
 import wcci.demo.repos.CampusRepository;
 
 import java.util.Arrays;

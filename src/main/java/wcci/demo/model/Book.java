@@ -1,75 +1,47 @@
 package wcci.demo.model;
 
-import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-public class Book {
+public class Book{
+
     @Id
     @GeneratedValue
     private long id;
     private String title;
-    private String description;
-    private String ISBN;
-    @ManyToOne
-    private Campus campus;
-    private String imgUrl;
+    private String author;
+    private String pubDate;
+    private String isbn;
 
-    @ManyToMany
-    private Collection<Author> authors;
-
-    public Book(String title, String description, String ISBN, Campus campus, String imgUrl, Author... author) {
+    public Book(String title, String author, String pubDate, String isbn) {
         this.title = title;
-        this.description = description;
-        this.ISBN = ISBN;
-        this.campus = campus;
-        this.imgUrl = imgUrl;
-        this.authors = Arrays.asList(author);
+        this.author = author;
+        this.pubDate = pubDate;
+        this.isbn = isbn;
     }
 
     public Book() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public Campus getCampus() {
-        return campus;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getDescription() {
-        return description;
+    public long getId() {
+        return id;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getAuthor() {
+        return author;
     }
 
-    public Collection<Author> getAuthors() {
-        return authors;
+    public String getPubDate() {
+        return pubDate;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return id == book.id && Objects.equals(title, book.title) && Objects.equals(description, book.description) && Objects.equals(ISBN, book.ISBN) && Objects.equals(campus, book.campus) && Objects.equals(authors, book.authors);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description, ISBN, campus, authors);
+    public String getIsbn() {
+        return isbn;
     }
 }

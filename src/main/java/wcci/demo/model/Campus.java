@@ -1,24 +1,23 @@
 package wcci.demo.model;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Locale;
-import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Collection;
 @Entity
 public class Campus {
     @Id
     @GeneratedValue
     private long id;
     private String location;
-    private String description;
-    @OneToMany(mappedBy = "campus")
-    private Collection<Book> books;
+    private String techStack;
 
-    public Campus(String location, String description) {
+    //private Collection<Book> books;
+
+    public Campus(String location, String techStack) {
         this.location = location;
-        this.description = description;
+        this.techStack = techStack;
     }
 
     public Campus() {
@@ -28,24 +27,7 @@ public class Campus {
         return location;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public Collection<Book> getBooks() {
-        return books;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Campus campus = (Campus) o;
-        return id == campus.id && Objects.equals(location, campus.location) && Objects.equals(description, campus.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, location, description);
+    public String getTechStack() {
+        return techStack;
     }
 }
