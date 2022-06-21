@@ -1,8 +1,6 @@
 package wcci.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Book{
@@ -15,11 +13,15 @@ public class Book{
     private String pubDate;
     private String isbn;
 
-    public Book(String title, String author, String pubDate, String isbn) {
+    @ManyToOne
+    private Campus campus;
+
+    public Book(String title, String author, String pubDate, String isbn, Campus campus) {
         this.title = title;
         this.author = author;
         this.pubDate = pubDate;
         this.isbn = isbn;
+        this.campus = campus;
     }
 
     public Book() {
@@ -43,5 +45,9 @@ public class Book{
 
     public String getIsbn() {
         return isbn;
+    }
+
+    public Campus getCampus() {
+        return campus;
     }
 }

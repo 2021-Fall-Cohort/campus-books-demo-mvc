@@ -1,9 +1,8 @@
 package wcci.demo.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 @Entity
 public class Campus {
@@ -12,12 +11,13 @@ public class Campus {
     private long id;
     private String location;
     private String techStack;
-
-    //private Collection<Book> books;
+    @OneToMany(mappedBy = "campus")
+    private Collection<Book> books;
 
     public Campus(String location, String techStack) {
         this.location = location;
         this.techStack = techStack;
+        this.books = new ArrayList<>();
     }
 
     public Campus() {
@@ -29,5 +29,9 @@ public class Campus {
 
     public String getTechStack() {
         return techStack;
+    }
+
+    public Collection<Book> getBooks() {
+        return books;
     }
 }
