@@ -1,6 +1,8 @@
 package wcci.demo.model;
 
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 public class Book{
@@ -9,22 +11,27 @@ public class Book{
     @GeneratedValue
     private long id;
     private String title;
-    private String author;
     private String pubDate;
     private String isbn;
 
     @ManyToOne
     private Campus campus;
+    @ManyToMany
+    private Collection<Author> authors;
 
-    public Book(String title, String author, String pubDate, String isbn, Campus campus) {
+    public Book(String title, String pubDate, String isbn, Campus campus, Author... authors) {
         this.title = title;
-        this.author = author;
         this.pubDate = pubDate;
         this.isbn = isbn;
         this.campus = campus;
+        this.authors = Arrays.asList(authors);
     }
 
     public Book() {
+    }
+
+    public void addAuthor(Author author) {
+        authors.add(author);
     }
 
     public String getTitle() {
@@ -33,10 +40,6 @@ public class Book{
 
     public long getId() {
         return id;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     public String getPubDate() {
@@ -49,5 +52,9 @@ public class Book{
 
     public Campus getCampus() {
         return campus;
+    }
+
+    public Collection<Author> getAuthors() {
+        return authors;
     }
 }

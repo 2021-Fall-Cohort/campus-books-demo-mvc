@@ -13,9 +13,13 @@
     <div class="container">
         <h1 th:text="${whatEverIwant.title}">Book Title</h1>
         <hr>
-        <h2 th:text="${whatEverIwant.author}">David Hooper</h2>
         <h3 th:text="${whatEverIwant.isbn}">3284524872</h3>
         <h3 th:text="${whatEverIwant.pubDate}">1/1/1990</h3>
+        <ul>
+            <li th:each="author: ${whatEverIwant.authors}">
+                <a th:text="${author.name}" th:href="'/authors/' + ${author.id}"></a>
+            </li>
+        </ul>
     </div>
 <div th:replace="fragments.html :: footer"></div>
 </body>
