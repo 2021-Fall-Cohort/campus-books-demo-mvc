@@ -20,6 +20,15 @@
                 <a th:text="${author.name}" th:href="'/authors/' + ${author.id}"></a>
             </li>
         </ul>
+
+        <hr>
+        <br>
+        <br>
+        <form th:action="'/books/' + ${whatEverIwant.id}+ '/addAuthor'" method="post">
+            <label for="authorID">Enter Author name:</label>
+            <input type="text" name="author" id="authorID">
+            <input type="submit">
+        </form>
     </div>
 <div th:replace="fragments.html :: footer"></div>
 </body>
